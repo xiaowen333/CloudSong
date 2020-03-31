@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragments/header::header}">
+
+</head>
+
+<body>
+
+
+<!-- Main Content -->
+<div class="main-content">
+  <section class="section">
+    <div class="section-header">
+      <h1>个人用户信息</h1>
+      <div class="section-header-breadcrumb">
+        <div class="breadcrumb-item active"><a href="#">CloudSong</a></div>
+        <div class="breadcrumb-item">个人信息</div>
+      </div>
+    </div>
+    <div class="section-body">
+      <h2 class="section-title" th:text="'Hi,' +${user.username}" >Hi, Ujang!</h2>
+
+
+      <div class="row mt-sm-4">
+        <div class="col-12 col-md-12 col-lg-9">
+
+        </div>
+        <div class="col-12 col-md-12 col-lg-6">
+          <form  th:action="@{/user}" method="post" class="needs-validation">
+          <div class="card profile-widget">
+
+          <div class="profile-widget-header">
+            <img alt="image" th:src="${user.avatar}" class="rounded-circle profile-widget-picture">
+
+            <label for="avatar"></label>
+            <input type="file" class="form-control" name="avatar"  id="avatar"  >
+          </div>
+          </div>
+
+
+          <div class="card">
+
+              <div class="card-header">
+                <h4>修改个人信息</h4>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="form-group col-md-4 col-12">
+                    <label for="id" hidden>id</label>
+                    <input type="text" hidden class="form-control" name="id"  id="id" th:value="${user.id}"  >
+                    <label>username</label>
+                    <input type="text" class="form-control"  disabled="disabled" id="username" name="username"  th:value="${user.username}" required="">
+
+                  </div>
+                  <!--<div class="form-group col-md-6 col-12">-->
+                  <!--<label>Last Name</label>-->
+                  <!--<input type="text" class="form-control" value="Maman" required="">-->
+                  <!--<div class="invalid-feedback">-->
+                  <!--Please fill in the last name-->
+                  <!--</div>-->
+                  <!--</div>-->
+                </div>
+                <div class="row">
+                  <div class="form-group col-md-8 col-12">
+                    <label>email</label>
+                    <input type="email" class="form-control" id="email" name="email" th:value="${user.email}" required="">
+
+                  </div>
+                  <!--<div class="form-group col-md-5 col-12">-->
+                  <!--<label>Phone</label>-->
+                  <!--<input type="tel" class="form-control" value="">-->
+                  <!--</div>-->
+                </div>
+                <!--<div class="row">-->
+                <!--<div class="form-group col-12">-->
+                <!--<label>Bio</label>-->
+                <!--<textarea class="form-control summernote-simple">Ujang maman is a superhero name in <b>Indonesia</b>, especially in my family. He is not a fictional character but an original hero in my family, a hero for his children and for his wife. So, I use the name as a user in this template. Not a tribute, I'm just bored with <b>'John Doe'</b>.</textarea>-->
+                <!--</div>-->
+                <!--</div>-->
+                <div class="row">
+                  <div class="form-group mb-0 col-12">
+
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer text-right">
+                <button class="btn btn-primary">Save Changes</button>
+              </div>
+
+          </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</div>
+
+
+<div th:replace="~{fragments/footer::footer}">...</div>
+</body>
+</html>
+     

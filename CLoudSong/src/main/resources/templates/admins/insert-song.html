@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragments/header::header}">
+
+</head>
+
+<body>
+
+
+<!-- Main Content -->
+<div class="main-content">
+  <section class="section">
+    <div class="section-header">
+      <h1>添加歌曲</h1>
+      <div class="section-header-breadcrumb">
+        <div class="breadcrumb-item active"><a href="#">CloudSong</a></div>
+        <div class="breadcrumb-item">添加歌曲</div>
+      </div>
+    </div>
+    <div class="section-body">
+
+      <div class="row mt-sm-4">
+
+        <div class="col-12 col-md-12 col-lg-6">
+          <form  th:action="@{'/insertSong?id='+${songlist.id}}" method="post" class="needs-validation">
+          <div class="card profile-widget">
+
+          <div class="profile-widget-header">
+            <!--<img alt="image" th:src="${songlist.user.avatar}" class="rounded-circle profile-widget-picture">-->
+
+            <!--<label for="avatar"></label>-->
+            <!--<input type="file" class="form-control" name="avatar"  id="avatar"  >-->
+          </div>
+          </div>
+
+          <div class="card">
+              <div class="card-header">
+                <h4>新增歌曲</h4>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <!--<div class="form-group col-md-6 col-12">-->
+                  <!--<label>Last Name</label>-->
+                  <!--<input type="text" class="form-control" value="Maman" required="">-->
+                  <!--<div class="invalid-feedback">-->
+                  <!--Please fill in the last name-->
+                  <!--</div>-->
+                  <!--</div>-->
+                </div>
+
+                <div class="form-group col-md-4 col-12">
+                <label>歌名</label>
+                <input type="text" class="form-control"  id="title" name="title"  required="">
+                </div>
+
+                <div class="form-group col-md-4 col-12">
+                  <label>专辑名</label>
+                  <input type="text" class="form-control" id="album" name="album" required="">
+                </div>
+
+                <div class="form-group col-md-4 col-12">
+                  <label>歌手</label>
+                  <input type="text" class="form-control" id="songplay" name="songplay" required="">
+                </div>
+                <div class="row">
+
+                  <!--<div class="card-body">-->
+                    <!--<div class="table-responsive">-->
+                      <!--<table class="table table-bordered table-md">-->
+                        <!--<tr>-->
+                          <!--<th>#</th>-->
+                          <!--<th>Name</th>-->
+                          <!--<th>Album</th>-->
+                          <!--<th>Delete</th>-->
+                        <!--</tr>-->
+                        <!--&lt;!&ndash;<tr th:each="song : ${songlist.songs}">&ndash;&gt;-->
+                          <!--&lt;!&ndash;<td th:text="${song.id}">1</td>&ndash;&gt;-->
+                          <!--&lt;!&ndash;<td th:text="${song.title}"> Irwansyah Saputra</td>&ndash;&gt;-->
+                          <!--&lt;!&ndash;<td th:text="${song.album}">2017-01-09</td>&ndash;&gt;-->
+
+                          <!--&lt;!&ndash;&lt;!&ndash;<td><a href="#" class="btn btn-secondary">Detail</a></td>&ndash;&gt;&ndash;&gt;-->
+
+                          <!--&lt;!&ndash;<td><a th:href="@{'/deletesonglist?id=' + ${song.id}}" class="badge badge-danger">Delete</a></td>&ndash;&gt;-->
+
+                        <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+
+
+                      <!--</table>-->
+                    <!--</div>-->
+                  <!--</div>-->
+
+                  <!--<div class="form-group col-md-5 col-12">-->
+                  <!--<label>Phone</label>-->
+                  <!--<input type="tel" class="form-control" value="">-->
+                  <!--</div>-->
+                </div>
+                <!--<div class="row">-->
+                <!--<div class="form-group col-12">-->
+                <!--<label>Bio</label>-->
+                <!--<textarea class="form-control summernote-simple">Ujang maman is a superhero name in <b>Indonesia</b>, especially in my family. He is not a fictional character but an original hero in my family, a hero for his children and for his wife. So, I use the name as a user in this template. Not a tribute, I'm just bored with <b>'John Doe'</b>.</textarea>-->
+                <!--</div>-->
+                <!--</div>-->
+                <div class="row">
+                  <div class="form-group mb-0 col-12">
+
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer text-right">
+                <button class="btn btn-primary">Save Changes</button>
+              </div>
+
+          </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</div>
+
+
+<div th:replace="~{fragments/footer::footer}">...</div>
+</body>
+</html>
+     

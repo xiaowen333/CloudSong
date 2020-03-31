@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragments/header::header}">
+
+</head>
+
+<body>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <section class="section">
+          <div class="section-header">
+            <h1>Table</h1>
+            <div class="section-header-breadcrumb">
+              <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
+              <div class="breadcrumb-item"><a href="#">Components</a></div>
+              <div class="breadcrumb-item">Table</div>
+            </div>
+          </div>
+
+          <div class="section-body">
+            <!--<h2 class="section-title">Table</h2>-->
+            <!--<p class="section-lead">Example of some Bootstrap table components.</p>-->
+
+            <div class="row">
+              <div class="col-12 col-md-12 col-lg-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h4>Simple Table</h4>
+                  </div>
+                  <div class="card-body">
+                    <div class="table-responsive">
+                      <table class="table table-bordered table-md">
+                        <tr>
+                          <th>#</th>
+                          <th>Name</th>
+                          <th>Created At</th>
+                          <th>User</th>
+                          <th>Action</th>
+                          <th>Delete</th>
+
+
+                        </tr>
+                        <tr th:each="comment : ${comments.list}">
+                          <td th:text="${comment.id}">1</td>
+                          <td th:text="${comment.content}"> Irwansyah Saputra</td>
+                          <td th:text="${comment.createTime}">2017-01-09</td>
+                          <td th:text="${comment.user.username}"></td>
+
+                          <td><a th:href="@{'/updateSonglist?id=' + ${comment.id}}" class="btn btn-secondary">Detail</a></td>
+
+                          <td><a th:href="@{'/deletesonglist?id=' + ${comment.id}}" class="badge badge-danger">Delete</a></td>
+
+                        </tr>
+
+
+                      </table>
+                    </div>
+                  </div>
+
+                  <div class="card-footer text-right">
+                    <nav class="d-inline-block">
+                      <ul class="pagination mb-0">
+                        <li class="page-item disabled">
+                          <a class="page-link" href="#" tabindex="-1"><i class="fas fa-chevron-left"></i></a>
+                        </li>
+                        <li class="page-item active" th:each="i:${comments.navigatepageNums}">
+                          <a class="page-link" th:href="@{'/songlist?pageNo='+${i}+'&pageSize=5'}" th:text="${i}">1 <span class="sr-only">(current)</span></a></li>
+                          <a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+              <div th:replace="~{fragments/footer::footer}">...</div>
+</body>
+</html>
